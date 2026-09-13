@@ -64,7 +64,8 @@ accepted silently and never fires. Redirect `www` to the apex with a zone-level
 - `bookingUrl` — empty. Every call to action falls back to the email link until
   a real scheduler URL is set. Fill it in and the buttons become "Book a call".
 
-Also confirm `hello@galen.software` is a real, monitored address.
+Contact is `bennettye@galen.software`, routed through Cloudflare Email Routing.
+Note that `hello@` is not a configured address — do not use it in copy.
 
 ## Structure
 

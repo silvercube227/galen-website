@@ -11,7 +11,7 @@ export const site = {
    */
   bookingUrl: '',
 
-  email: 'hello@galen.software',
+  email: 'bennettye@galen.software',
 } as const;
 
 export const emailHref = `mailto:${site.email}`;

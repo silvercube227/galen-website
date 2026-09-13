@@ -26,7 +26,7 @@ if (existsSync(indexPath)) {
     ['JSON-LD block', 'application/ld+json'],
     ['SoftwareApplication schema', '"@type": "SoftwareApplication"'],
     ['open graph image', 'og:image'],
-    ['contact address', 'hello@galen.software'],
+    ['contact address', 'bennettye@galen.software'],
     ['pipeline steps rendered', 'Evidence dossier'],
     ['trust pillars rendered', 'Every field carries a citation'],
     ['skip link', 'Skip to content'],
@@ -40,6 +40,8 @@ if (existsSync(indexPath)) {
     ['no hype language', /revolutionary|game[- ]changing/i],
     ['no mock persona from the business card', /anna meier|anna@galen\.io/i],
     ['no placeholder domain', /galen\.io/i],
+    // hello@ is not a configured address on the domain; mail to it is lost.
+    ['no unrouted hello@ address', /hello@galen\.software/i],
   ];
 
   for (const [label, pattern] of banned) check(label, !pattern.test(html));
