@@ -31,26 +31,41 @@ prerender, and it is what search engines and link unfurlers see.
 
 ## Deploying
 
-Cloudflare Pages, connected to this repo. `galen.software` is already on
-Cloudflare nameservers, so the custom domain needs no registrar changes.
+Cloudflare **Workers** (static assets), connected to this repo via Workers
+Builds. Pages is legacy, so new Git connections land here instead.
+`galen.software` is already on Cloudflare nameservers, so the custom domain
+needs no registrar changes.
 
+Build configuration in the dashboard:
+
+- Root directory: `/` (leave blank)
 - Build command: `npm run build:ci`
-- Output directory: `dist/galen-website/browser`
-- Node version: read from `.nvmrc` (24.21.0). Set `NODE_VERSION=24` as a build
-  environment variable if the build image ignores it.
+- Deploy command: `npx wrangler deploy`
+- Version command: `npx wrangler versions upload`
 
-Using `build:ci` means a deploy fails if the prerender broke or banned copy
-reappeared, instead of shipping it.
+There is no output-directory field in this flow — `wrangler.jsonc` points at
+`dist/galen-website/browser` instead. Node comes from `.nvmrc` (24.21.0).
 
-`public/_headers` is picked up automatically and sets the security headers and
-font caching.
+Using `build:ci` rather than `build` means a deploy fails if the prerender
+broke or banned copy reappeared, instead of shipping it.
+
+`public/_headers` is copied into the output by the build and applied by Workers
+static assets — security headers plus immutable caching for `/fonts/*`. Unknown
+paths return 404 with `public/404.html`.
+
+To check the whole thing the way Cloudflare will run it:
+
+```bash
+npm run build:ci
+npx wrangler dev --local        # serves on :8787 with _headers applied
+npx wrangler deploy --dry-run   # validates config, uploads nothing
+```
 
 ### www redirect
 
-There is deliberately no `_redirects` file. Cloudflare Pages does not support
-domain-level sources in `_redirects` — a `www.galen.software/*` rule there is
-accepted silently and never fires. Redirect `www` to the apex with a zone-level
-**Single Redirect** rule instead:
+There is deliberately no `_redirects` file. Domain-level sources are not
+supported there — a `www.galen.software/*` rule is accepted silently and never
+fires. Redirect `www` to the apex with a zone-level **Single Redirect** rule:
 
 - Rules -> Redirect Rules -> Create rule
 - If: `Hostname equals www.galen.software`
