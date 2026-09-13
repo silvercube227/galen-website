@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:ci": "npm run build && npm run verify",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "verify": "node scripts/check-prerender.mjs",

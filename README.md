@@ -15,6 +15,7 @@ Node >= 24.15.0 (Angular 22's minimum). See `.nvmrc`.
 | --- | --- |
 | `npm start` | Dev server at http://localhost:4200 |
 | `npm run build` | Static build into `dist/galen-website/browser` |
+| `npm run build:ci` | Build then verify — this is what Cloudflare Pages runs |
 | `npm run verify` | Asserts the build really prerendered, and that no banned copy slipped in |
 | `npm run og` | Regenerates `public/og-image.png` from `design/og-image.html` |
 
@@ -30,14 +31,31 @@ prerender, and it is what search engines and link unfurlers see.
 
 ## Deploying
 
-Cloudflare Pages, connected to this repo:
+Cloudflare Pages, connected to this repo. `galen.software` is already on
+Cloudflare nameservers, so the custom domain needs no registrar changes.
 
-- Build command: `npm run build`
+- Build command: `npm run build:ci`
 - Output directory: `dist/galen-website/browser`
-- Environment variable: `NODE_VERSION=24`
+- Node version: read from `.nvmrc` (24.21.0). Set `NODE_VERSION=24` as a build
+  environment variable if the build image ignores it.
 
-`public/_headers` and `public/_redirects` are picked up by Cloudflare Pages
-automatically. They set the security headers and redirect `www` to the apex.
+Using `build:ci` means a deploy fails if the prerender broke or banned copy
+reappeared, instead of shipping it.
+
+`public/_headers` is picked up automatically and sets the security headers and
+font caching.
+
+### www redirect
+
+There is deliberately no `_redirects` file. Cloudflare Pages does not support
+domain-level sources in `_redirects` — a `www.galen.software/*` rule there is
+accepted silently and never fires. Redirect `www` to the apex with a zone-level
+**Single Redirect** rule instead:
+
+- Rules -> Redirect Rules -> Create rule
+- If: `Hostname equals www.galen.software`
+- Then: Dynamic redirect to `concat("https://galen.software", http.request.uri.path)`
+- Status 301, preserve query string
 
 ## Before launch
 
