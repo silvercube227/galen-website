@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  border-radius: 0;
+}
+
+:host(.card--default) {
+  border: var(--border-weight) solid var(--hairline);
+}
+
+:host(.card--emphasis) {
+  border: var(--border-weight) solid var(--navy);
+}
+
+:host(.card--dashed) {
+  border: var(--border-weight) dashed var(--hairline);
+}
+
+.card-body {
+  color: var(--fg-muted);
+}

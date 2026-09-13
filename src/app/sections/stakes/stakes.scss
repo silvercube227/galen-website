@@ -1,0 +1,25 @@
+.outcomes {
+  margin-bottom: var(--space-3xl);
+}
+
+.outcome {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.outcome .display-figure {
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.25rem);
+  line-height: 1.05;
+}
+
+.outcome p:last-child {
+  color: var(--fg-muted);
+}
+
+.today {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  color: var(--fg-muted);
+}

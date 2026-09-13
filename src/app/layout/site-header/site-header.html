@@ -1,0 +1,20 @@
+<div class="container bar">
+  <a class="wordmark" href="#top">
+    <app-galen-mark [size]="26" />
+    <span class="wordmark-text">{{ site.name }}</span>
+  </a>
+
+  <nav class="nav" aria-label="Sections">
+    <a href="#how-it-works">How it works</a>
+    <a href="#trust">Why trust it</a>
+    <a href="#audience">Who it's for</a>
+  </nav>
+
+  <a
+    class="button button--primary cta"
+    [href]="ctaHref"
+    [attr.target]="ctaIsExternal ? '_blank' : null"
+    [attr.rel]="ctaIsExternal ? 'noopener' : null"
+    >{{ ctaLabel }}</a
+  >
+</div>

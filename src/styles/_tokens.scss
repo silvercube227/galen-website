@@ -1,0 +1,112 @@
+// Galen design tokens.
+//
+// Transcribed from the Galen brand specification (deck + business card).
+// Deck rules are 1920x1080; where a rule does not map directly to a
+// responsive page the web translation is noted inline.
+//
+// Two grounds only: white and navy. One accent only. No gradients.
+
+:root {
+  color-scheme: light;
+
+  // ---- Color -------------------------------------------------------------
+  --navy: #16365a;
+  --cream: #f4f0e6;
+  --white: #ffffff;
+
+  // Single accent. WHITE GROUNDS ONLY: 5.0:1 on white, but only 2.5:1 on
+  // navy, so navy grounds use --accent-light instead. Enforced by the
+  // .ground-* blocks below, which remap --fg-accent per ground.
+  --accent: #2e7a8c;
+  --accent-light: #93bfcc; // 6.2:1 on navy
+
+  --body-grey: #4a5568; // 7.5:1 on white
+
+  // --warm-grey is 3.8:1 on white and FAILS AA for text. It is kept for
+  // decorative/non-text use only; --warm-grey-text (5.6:1) carries any
+  // label a reader actually needs.
+  --warm-grey: #8a8272;
+  --warm-grey-text: #6f6857;
+
+  --hairline-on-white: rgba(22, 54, 90, 0.15);
+  --hairline-on-navy: rgba(244, 240, 230, 0.2);
+
+  --rule-weight: 2px; // navy section-head rules
+  --border-weight: 1.5px; // card borders
+
+  // ---- Type families -----------------------------------------------------
+  --font-display: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
+    sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  // ---- Type scale --------------------------------------------------------
+  // The deck's sizes are read across a room; these preserve the deck's
+  // ratios at arm's-length reading distance.
+  // deck 100px -> display | 32-34px lede | 23-25px body | 19-23px mono
+  --size-display: clamp(2.75rem, 1.8rem + 4vw, 4.5rem);
+  --size-title: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  --size-lede: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --size-card-heading: 1.375rem;
+  --size-body: 1.125rem;
+  --size-label: 0.875rem; // floor: never below 14px
+
+  --leading-display: 1.05;
+  --leading-title: 1.1;
+  --leading-body: 1.6;
+
+  --tracking-display: -0.04em;
+  --tracking-title: -0.03em;
+  --tracking-label: 0.1em;
+
+  // ---- Space and layout --------------------------------------------------
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+
+  --container: 1120px;
+  // deck: 96px side padding on 1920 (5%). Never below 20px on a phone.
+  --gutter: clamp(20px, 5vw, 96px);
+  // deck: 24-44px grid gutters
+  --grid-gap: clamp(24px, 3vw, 44px);
+  --section-y: clamp(4rem, 10vw, 8rem);
+
+  --measure: 68ch;
+  --header-height: 66px;
+}
+
+// ---- Ground contexts -----------------------------------------------------
+// Components read --fg / --fg-muted / --fg-label / --fg-accent / --hairline
+// and stay ground-agnostic. This is what keeps the accent off navy.
+
+.ground-white {
+  --ground: var(--white);
+  --fg: var(--navy);
+  --fg-muted: var(--body-grey);
+  --fg-label: var(--warm-grey-text);
+  --fg-accent: var(--accent);
+  --hairline: var(--hairline-on-white);
+  --rule: var(--navy);
+
+  background-color: var(--ground);
+  color: var(--fg);
+}
+
+.ground-navy {
+  --ground: var(--navy);
+  --fg: var(--cream);
+  --fg-muted: rgba(244, 240, 230, 0.78); // 4.6:1 on navy
+  --fg-label: var(--accent-light);
+  --fg-accent: var(--accent-light);
+  --hairline: var(--hairline-on-navy);
+  --rule: var(--cream);
+
+  background-color: var(--ground);
+  color: var(--fg);
+}

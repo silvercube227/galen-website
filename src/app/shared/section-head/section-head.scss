@@ -1,0 +1,17 @@
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: var(--rule-weight) solid var(--rule);
+  margin-bottom: var(--space-2xl);
+}
+
+.index {
+  flex: none;
+}
+
+:host {
+  display: block;
+}

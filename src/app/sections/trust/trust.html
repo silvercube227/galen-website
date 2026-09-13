@@ -1,0 +1,29 @@
+<div class="container">
+  <app-section-head heading="Why you can defend it" index="03" headingId="trust-heading" />
+
+  <p class="lede intro">
+    The realistic failure mode for a tool like this is a plausible-sounding, unsupported
+    justification landing in a regulated record that an investigator reads years later. Galen is
+    built against that specific outcome.
+  </p>
+
+  <div class="grid grid--2">
+    @for (pillar of pillars; track pillar.title) {
+      <app-brand-card
+        [heading]="pillar.title"
+        [variant]="pillar.emphasis ? 'emphasis' : 'default'"
+      >
+        {{ pillar.body }}
+      </app-brand-card>
+    }
+  </div>
+
+  <p class="validation">
+    Built to be validated the way your QA team validates other quality-system software —
+    <span class="cite">QMSR §4.1.6</span> and <span class="cite">ISO 13485 §4.1.6</span>.
+  </p>
+
+  <p class="section-summary">
+    Every claim traces to a document. Every decision traces to a person.
+  </p>
+</div>

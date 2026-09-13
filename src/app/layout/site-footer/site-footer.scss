@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-xl);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xl);
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-2xl);
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.wordmark-text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variation-settings: 'SOFT' 30;
+  font-size: 1.5rem;
+  letter-spacing: var(--tracking-title);
+  line-height: 1;
+  transform: translateY(0.03em);
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: flex-start;
+}
+
+.status {
+  color: var(--fg-muted);
+  font-size: 1rem;
+}
+
+.legal {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--hairline);
+}

@@ -1,0 +1,23 @@
+<div class="container inner">
+  <p class="label">Design partners</p>
+
+  <h2 id="cta-heading">Galen is in development.</h2>
+
+  <p class="lede">
+    We are onboarding a small number of design partners — RA and QA teams willing to put real
+    change-control decisions in front of the pipeline and tell us where it falls short.
+  </p>
+
+  <div class="actions">
+    <a
+      class="button button--primary"
+      [href]="ctaHref"
+      [attr.target]="ctaIsExternal ? '_blank' : null"
+      [attr.rel]="ctaIsExternal ? 'noopener' : null"
+      >{{ ctaLabel }}</a
+    >
+    @if (!ctaIsEmail) {
+      <a class="button button--secondary" [href]="emailHref">{{ site.email }}</a>
+    }
+  </div>
+</div>

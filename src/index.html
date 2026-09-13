@@ -1,13 +1,75 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>GalenWebsite</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Galen — FDA Letter-to-File and 510(k) change assessments, drafted and cited</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Galen turns a code change, ticket or ECO into a cited, review-ready FDA regulatory decision — a drafted Letter-to-File, or a flag that a new 510(k) is likely required — for medtech RA and QA teams."
+    />
+    <link rel="canonical" href="https://galen.software/" />
+    <meta name="theme-color" content="#16365a" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://galen.software/" />
+    <meta
+      property="og:title"
+      content="Galen — FDA Letter-to-File and 510(k) change assessments, drafted and cited"
+    />
+    <meta
+      property="og:description"
+      content="An AI regulatory agent for medtech RA and QA teams. Every field cited, every decision traceable, a human always signs."
+    />
+    <meta property="og:image" content="https://galen.software/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="favicon.ico" sizes="any" />
+
+    <link
+      rel="preload"
+      href="/fonts/fraunces-latin-soft-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-sans-latin-wght-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://galen.software/#organization",
+            "name": "Galen",
+            "url": "https://galen.software/",
+            "description": "Regulatory infrastructure for medical device and medtech software teams.",
+            "email": "hello@galen.software"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "name": "Galen",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "https://galen.software/",
+            "publisher": { "@id": "https://galen.software/#organization" },
+            "description": "Drafts FDA Letter-to-File and 510(k)-change assessments from a company's own quality records and live change context, with a citation on every field and a human approver on every record."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <app-root id="top"></app-root>
+  </body>
 </html>

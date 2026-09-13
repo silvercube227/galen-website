@@ -1,0 +1,18 @@
+<div class="container inner">
+  <div class="identity">
+    <span class="wordmark">
+      <app-galen-mark [size]="26" />
+      <span class="wordmark-text">{{ site.name }}</span>
+    </span>
+    <span class="label tagline">{{ site.tagline }}</span>
+  </div>
+
+  <div class="meta">
+    <a class="link email" [href]="emailHref">{{ site.email }}</a>
+    <p class="status">In development — seeking design partners.</p>
+  </div>
+</div>
+
+<div class="container legal">
+  <span class="label">&copy; {{ year }} {{ site.name }}</span>
+</div>

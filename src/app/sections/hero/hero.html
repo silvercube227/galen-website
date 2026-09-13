@@ -1,0 +1,22 @@
+<div class="container inner">
+  <p class="label">{{ site.tagline }}</p>
+
+  <h1>Every change to a cleared device forces the same call: new 510(k), or Letter&#8209;to&#8209;File?</h1>
+
+  <p class="lede">
+    Galen turns a code change, ticket or ECO into a cited, review-ready regulatory decision — a
+    drafted Letter-to-File, or a flag that a new submission is likely required — in minutes rather
+    than days.
+  </p>
+
+  <div class="actions">
+    <a
+      class="button button--primary"
+      [href]="ctaHref"
+      [attr.target]="ctaIsExternal ? '_blank' : null"
+      [attr.rel]="ctaIsExternal ? 'noopener' : null"
+      >{{ ctaLabel }}</a
+    >
+    <a class="button button--secondary" href="#how-it-works">See how it works</a>
+  </div>
+</div>

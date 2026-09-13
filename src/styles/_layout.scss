@@ -1,0 +1,152 @@
+// Deck geometry translated to a responsive page.
+// Square corners everywhere. No shadows. No rounded corners. No icons.
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+// Anchor targets clear the sticky header.
+[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-xl));
+}
+
+.section {
+  // Custom elements are inline by default; without this the vertical
+  // padding has no layout effect and sections run into each other.
+  display: block;
+  padding-block: var(--section-y);
+}
+
+// Deck: 2- or 4-column grid, 24-44px gutters.
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 960px) {
+  .grid--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .grid--2,
+  .grid--4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+// Deck: a summary line pinned to the bottom of the slide above a hairline.
+.section-summary {
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--hairline);
+  color: var(--fg-muted);
+  // Overrides the global measure cap on <p> so the rule spans the
+  // container the way it spans a slide in the deck.
+  max-width: none;
+  text-wrap: balance;
+}
+
+// ---- Actions -------------------------------------------------------------
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border: var(--border-weight) solid transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+
+// On navy: cream fill. On white: navy fill.
+.ground-navy .button--primary {
+  background-color: var(--cream);
+  color: var(--navy);
+  border-color: var(--cream);
+}
+
+.ground-navy .button--primary:hover {
+  background-color: var(--accent-light);
+  border-color: var(--accent-light);
+}
+
+.ground-white .button--primary {
+  background-color: var(--navy);
+  color: var(--cream);
+  border-color: var(--navy);
+}
+
+.ground-white .button--primary:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: var(--fg);
+  border-color: currentcolor;
+}
+
+.button--secondary:hover {
+  color: var(--fg-accent);
+}
+
+// Inline text link
+.link {
+  color: var(--fg-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.link:hover {
+  text-decoration-thickness: 2px;
+}
+
+// ---- Accessibility -------------------------------------------------------
+
+.skip-link {
+  position: absolute;
+  left: var(--space-md);
+  top: -100%;
+  z-index: 100;
+  padding: 12px 20px;
+  background-color: var(--navy);
+  color: var(--cream);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--space-md);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

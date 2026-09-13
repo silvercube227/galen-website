@@ -1,0 +1,68 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: block;
+  border-bottom: 1px solid transparent;
+  transition: border-color 150ms ease;
+}
+
+:host(.is-scrolled) {
+  border-bottom-color: var(--hairline);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  padding-block: var(--space-md);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  // Spec: gap is ~40% of mark height.
+  gap: 10px;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.wordmark-text {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-variation-settings: 'SOFT' 30;
+  font-size: 1.5rem;
+  letter-spacing: var(--tracking-title);
+  // Optical alignment: the mark matches cap height, not the em box.
+  line-height: 1;
+  transform: translateY(0.03em);
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.nav a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--fg-muted);
+  transition: color 120ms ease;
+}
+
+.nav a:hover {
+  color: var(--fg);
+}
+
+.cta {
+  padding: 10px 20px;
+  font-size: 0.9375rem;
+}
+
+// Three links do not earn a hamburger; they just step aside. The nav goes
+// before it crowds the CTA, not once it actually overflows.
+@media (max-width: 840px) {
+  .nav {
+    display: none;
+  }
+}

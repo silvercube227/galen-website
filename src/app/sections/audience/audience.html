@@ -1,0 +1,26 @@
+<div class="container">
+  <app-section-head heading="Who it's for" index="04" headingId="audience-heading" />
+
+  <div class="grid grid--2 split">
+    <div class="moment">
+      <p class="lede">
+        An engineer ships a change. Someone now has to decide whether it is a Letter-to-File under
+        <span class="cite">21 CFR 807.81(a)(3)</span> or a new 510(k) — and defend that call to an
+        auditor years from now.
+      </p>
+      <p class="who">
+        That someone is usually an RA manager, a QA director, or a VP of regulatory affairs.
+      </p>
+    </div>
+
+    <ul class="points">
+      @for (point of points; track point) {
+        <li>{{ point }}</li>
+      }
+    </ul>
+  </div>
+
+  <p class="section-summary">
+    If that call lands on your desk more than a few times a quarter, Galen is built for you.
+  </p>
+</div>

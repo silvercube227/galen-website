@@ -1,0 +1,59 @@
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  // Index / title / detail each get their own row so a title that wraps to
+  // two lines does not push its own detail text out of line with the rest.
+  grid-template-rows: auto auto auto;
+  gap: var(--grid-gap);
+}
+
+.step {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  gap: var(--space-xs);
+  padding-top: var(--space-md);
+  border-top: var(--rule-weight) solid var(--hairline);
+}
+
+.step-index {
+  color: var(--fg-accent);
+}
+
+.step-title {
+  font-size: 1.125rem;
+}
+
+.step-detail {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--fg-muted);
+}
+
+// Four and five columns get cramped before the text does; step down early.
+@media (max-width: 1080px) {
+  .steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 840px) {
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
+  }
+
+  // Horizontal run becomes a vertical spine; rows no longer need aligning.
+  .step {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    padding-left: var(--space-lg);
+    border-top: none;
+    border-left: var(--rule-weight) solid var(--hairline);
+  }
+}
+
+:host {
+  display: block;
+}
