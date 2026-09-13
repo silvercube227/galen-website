@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "galen-website",
+  "compatibility_date": "2026-09-13",
+
+  // Static assets only — no Worker script, so no "main" entrypoint.
+  // The directory is Angular's static build output; public/_headers is
+  // copied into it by the build and is applied by Workers static assets.
+  "assets": {
+    "directory": "./dist/galen-website/browser",
+
+    // One real route. Anything else is genuinely not found, so return a
+    // 404 rather than serving index.html at 200 and inventing pages that
+    // search engines would then index.
+    "not_found_handling": "404-page"
+  }
+}

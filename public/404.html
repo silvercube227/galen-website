@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Page not found — Galen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <style>
+      /* Standalone: this page must render without the app bundle or the
+         hashed stylesheet, so the few tokens it needs are inlined. */
+      @font-face {
+        font-family: 'Fraunces Variable';
+        src: url('/fonts/fraunces-latin-soft-normal.woff2') format('woff2-variations');
+        font-weight: 100 900;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'IBM Plex Sans';
+        src: url('/fonts/ibm-plex-sans-latin-wght-normal.woff2') format('woff2-variations');
+        font-weight: 100 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'IBM Plex Mono';
+        src: url('/fonts/ibm-plex-mono-latin-400-normal.woff2') format('woff2');
+        font-weight: 400;
+        font-display: swap;
+      }
+
+      html { color-scheme: light; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 48px clamp(20px, 5vw, 96px);
+        background: #16365a;
+        color: #f4f0e6;
+        font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 1.125rem;
+        line-height: 1.6;
+      }
+
+      .label {
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #93bfcc;
+      }
+
+      h1 {
+        margin: 0;
+        font-family: 'Fraunces Variable', Georgia, serif;
+        font-weight: 500;
+        font-variation-settings: 'SOFT' 30;
+        font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      p { margin: 0; max-width: 46ch; color: rgba(244, 240, 230, 0.78); }
+
+      a.home {
+        align-self: flex-start;
+        margin-top: 12px;
+        padding: 14px 28px;
+        background: #f4f0e6;
+        color: #16365a;
+        font-weight: 600;
+        text-decoration: none;
+        border: 1.5px solid #f4f0e6;
+      }
+
+      a.home:hover { background: #93bfcc; border-color: #93bfcc; }
+      a.home:focus-visible { outline: 2px solid #93bfcc; outline-offset: 3px; }
+    </style>
+  </head>
+  <body>
+    <svg
+      width="32"
+      height="32"
+      viewBox="0 0 32 32"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3.5"
+      stroke-linecap="butt"
+      stroke-linejoin="miter"
+      aria-hidden="true"
+    >
+      <path d="M3 8 H13 L21 16 H29" />
+      <path d="M3 24 H13 L21 16" />
+    </svg>
+
+    <p class="label">404</p>
+    <h1>That page isn't here.</h1>
+    <p>The link may be out of date, or the page may never have existed.</p>
+    <a class="home" href="/">Back to galen.software</a>
+  </body>
+</html>
